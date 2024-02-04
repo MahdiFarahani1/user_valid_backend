@@ -71,8 +71,17 @@ app.post("/checkUser", async (req, res) => {
     });
 
     if (userCheck) {
-   
-      res.status(200).send(true);
+      const userData = {
+        username :userCheck.username,
+        password :userCheck.password,
+        email :userCheck.email,
+        phone :userCheck.phone
+      }     
+
+      
+
+
+      res.status(200).send(userData);
       
     }else {
       res.status(400).send({ error: "این حساب وجود ندارد" });
